@@ -1,10 +1,11 @@
 <?php
 
 // phpunit
-$c = $this->getMockBuilder(Some::class)->getMock();
-$c->expects($this->once())->method('some')->will($this->returnValue(1));
-
 $some = $this->getMockBuilder(Some::class)->setConstructorArgs([$some, 1, null])->getMock();
+$some->expects($this->once())->method('some')->will($this->returnValue(1));
+$some->expects($this->never())->method('some');
+
+$some = $this->getMockBuilder(Some::class)->getMock();
 $some = $this->getMockBuilder(Some::class)->setMethods([])->getMock();
 // setMethods
 // all stubs, return null, overridable
