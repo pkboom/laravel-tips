@@ -1,5 +1,11 @@
 <?php
 
-// mockery
-$some->shouldReceive('some')->once()->with('some', m::mustBe(1))->andReturn(1);
-$some->shouldReceive('some')->andReturnNull();
+use Mockery as m;
+
+m::mock(Some::class);
+
+$some->shouldReceive('some')->once()->andReturn(1);
+$some->shouldReceive('some')->with('foo', m::type(Some::class))->andReturnNull();
+$some->shouldReceive('some')->andReturnUsing(function ($array = []) {
+    return new Some($array);
+});
