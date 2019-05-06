@@ -1,0 +1,1 @@
+https://laravel-news.com/testing-streamed-responses-in-laravel
