@@ -11,3 +11,6 @@ $mock->shouldReceive('some')->andReturnUsing(function ($array = []) {
     return new Some($array);
 });
 $mock->shouldReceive('some')->andThrow(InvalidArgumentException::class);
+
+Partial
+http://docs.mockery.io/en/latest/reference/partial_mocks.html
