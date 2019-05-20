@@ -10,3 +10,4 @@ $mock->shouldReceive('some')->with('foo', m::type(Some::class))->andReturnNull()
 $mock->shouldReceive('some')->andReturnUsing(function ($array = []) {
     return new Some($array);
 });
+$mock->shouldReceive('some')->andThrow(InvalidArgumentException::class);
