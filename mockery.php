@@ -12,5 +12,10 @@ $mock->shouldReceive('some')->andReturnUsing(function ($array = []) {
 });
 $mock->shouldReceive('some')->andThrow(InvalidArgumentException::class);
 
-Partial
-http://docs.mockery.io/en/latest/reference/partial_mocks.html
+// Partial
+// With this approach, all the unmocked methods are called on the actual instance.
+// http://docs.mockery.io/en/latest/reference/partial_mocks.html
+
+// shouldIgnoreMissing
+// shouldIgnoreMissing() returned null.
+// http://docs.mockery.io/en/latest/reference/creating_test_doubles.html?highlight=shouldIgnoreMissing#behavior-modifiers
