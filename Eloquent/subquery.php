@@ -14,7 +14,6 @@ $users = User::select('users.*')
 
 //////////////////////////////////////////////////////////////////
 
-
 use Illuminate\Database\Query\Builder;
 
 Builder::macro('addSubSelect', function ($column, $query) {
@@ -28,12 +27,11 @@ Builder::macro('addSubSelect', function ($column, $query) {
 $users = User::addSubSelect(
     'last_login_at',
     Login::select('created_at')
-    ->whereColumn('user_id', 'users.id')
-    ->latest()
+        ->whereColumn('user_id', 'users.id')
+        ->latest()
 )->get();
 
 ////////////////////////////////////////////////////////////////////
-
 
 class User extends Model
 {
