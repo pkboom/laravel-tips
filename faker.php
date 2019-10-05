@@ -1,5 +1,6 @@
 <?php
 
+// OrderFactory.php
 $factory->define(Order::class, function (Faker $faker) {
     $faker->addProvider(new PaymentTypeProvider($faker));
     return [
