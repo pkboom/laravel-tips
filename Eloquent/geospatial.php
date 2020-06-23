@@ -5,8 +5,8 @@ $customers = Customer::whereExists(fn ($query)
         ->from('region')
         ->where('regions.name', 'The Prairies')
         ->whereRaw('ST_Contains(
-            regions.geometry::geometry,
-            customers.location::geometry
+            regions.geometry,
+            customers.location
         )')
 )->get();
 
@@ -25,8 +25,8 @@ class Store extends Model
     public function scopeOrderByDistanceTo($query, array $coordinates)
     {
         $query->orderRaw('ST_Distance(
-            ST_MakePoint(longtitude, latitude)::geography,
-            ST_MakePoint(?, ?)::geography
+            ST_MakePoint(longtitude, latitude),
+            ST_MakePoint(?, ?)
         )', $coordinates);
     }
 }
