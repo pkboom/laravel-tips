@@ -15,7 +15,7 @@ class Post extends Model
 
     public function archive()
     {
-        return $this-delete();
+        return $this->delete();
     }
 }
 

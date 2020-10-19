@@ -14,8 +14,7 @@ class CampaignSort
             CASE
                 WHEN status = 'draft' AND scheduled_at IS NULL THEN O
                 ELSE 1 
-            END $reverseSortDirection
-            ,
+            END $reverseSortDirection,
             CASE
                 WHEN scheduled_at IS NOT NULL THEN scheduled_at 
                 WHEN sent_at IS NOT NULL THEN sent_at

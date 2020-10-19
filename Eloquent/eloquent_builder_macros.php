@@ -16,6 +16,7 @@ class AppServiceProvider
         // nulls last + asc = IS NULL, ASC
         // nulls first + desc = IS NULL, DESC
         // nulls first + asc = IS NOT NULL, ASC
+        // https://www.designcise.com/web/tutorial/how-to-order-null-values-first-or-last-in-mysql
         Builder::macro('orderByNulls', function ($column, $direction = 'asc', $nulls = 'last', $bindings = []) {
             $column = $this->getGrammar()->wrap($column);
             $direction = strtolower($direction) === 'asc' ? 'asc' : 'desc';
