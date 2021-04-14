@@ -1,10 +1,11 @@
-```
-find app/Http/Controllers -type f -name '*Controller.php' -exec bash -c 'php artisan make:test $(dirname "${1:19}")/$(basename "$1" .php)Test' bash {} \;
-```
+# Create controller tests
 
-```
-find . -exec grep chrome {} \;
-find . -exec grep chrome {} +
-```
+find app/Http/Controllers -type f -name '\*Controller.php' -exec bash -c 'php artisan make:test $(dirname "${1:21}")/$(basename "$1" .php)Test' bash {} \;
 
-find will substitute {} with the filename(s) found. The difference between ; and + is that with ; a single grep command for each file is executed whereas with + as many files as possible are given as parameters to grep at once.
+# Create job tests
+
+find app/Jobs -type f -name '\*.php' -exec bash -c 'php artisan make:test $(dirname "${1:4}")/$(basename "$1" .php)Test' bash {} \;
+
+# Create actions tests
+
+find app/Actions -type f -name '\*.php' -exec bash -c 'php artisan make:test $(dirname "${1:4}")/$(basename "$1" .php)Test' bash {} \;
